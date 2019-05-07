@@ -8,13 +8,10 @@ router.get('/', function(req, res, next) {
         if(err){
             return console.log(err);
         }
-        let reply = JSON.parse(body);
-        let metadata = reply['Meta Data'];
-        resolve(metadata);
+        let data = JSON.parse(body);
+        let meta = data['Meta Data'];
+        res.send(meta);
         })
-        .then(value => {
-            res.send( value );
-        });
 })
 
 module.exports = router;
